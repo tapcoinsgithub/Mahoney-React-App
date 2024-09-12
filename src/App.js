@@ -7,6 +7,8 @@ import Create from './components/Create';
 import View from './components/View';
 import Stats from './components/Stats';
 import { useEffect, createContext, useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import axios from "./api/axios";
 
 export class User {
   username;
@@ -18,14 +20,12 @@ export const UserContext = createContext();
 function App() {
 
   const [loggedIn, setLoggedIn] = useState(false);
-
-  useEffect(() => {
-    console.log(loggedIn)
-  })
+  const [token, setToken] = useState('')
+  
   if (loggedIn){
     return (
       <>
-      <UserContext.Provider value={[loggedIn, setLoggedIn]}>
+      <UserContext.Provider value={[loggedIn, setLoggedIn, token, setToken]}>
         
         <NavBar />
         <div className="container">
@@ -47,7 +47,7 @@ function App() {
   else{
     return (
       <>
-      <UserContext.Provider value={[loggedIn, setLoggedIn]}>
+      <UserContext.Provider value={[loggedIn, setLoggedIn, token, setToken]}>
         <div className="container">
           <Routes>
             <Route path="/" element={<Home />} />

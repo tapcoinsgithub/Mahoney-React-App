@@ -9,6 +9,7 @@ const LOGIN_URL = '/login'
 
 const Login = () => {
     const [loggedIn, setLoggedin] = useContext(UserContext)
+    const [token, setToken] = useContext(UserContext)
     const navigate = useNavigate();
     const userRef = useRef();
     const errRef = useRef();
@@ -50,12 +51,11 @@ const Login = () => {
                     withCredentials: true
                 }
             );
-            console.log("RESPONSE BELOW")
-            console.log(response)
-            if (response.data == "Success"){
+            if (response.data.result == "Success"){
                 setUsername('');
                 setPassword('');
                 setLoggedin(true);
+                setToken(response.data.token)
                 navigate('/home');
             }
             else{

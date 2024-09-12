@@ -34,14 +34,11 @@ const Register = () => {
 
     useEffect(() => {
         const result = USER_REGEX.test(username);
-        console.log(result);
-        console.log(username)
         setValidUserName(result)
     }, [username]);
 
     useEffect(() => {
         const result = PWD_REGEX.test(password);
-        console.log(result);
         setValidPassword(result)
         const match = password === confirmPassword;
         setValidConfirmPassword(match)

@@ -4,6 +4,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 
 function Stats() {
     const [loggedIn, setLoggedin] = useContext(UserContext)
+    const [token, setToken] = useContext(UserContext)
     const navigate = useNavigate();
     useEffect(() => {
         if (!loggedIn){

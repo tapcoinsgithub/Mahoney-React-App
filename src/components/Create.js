@@ -3,7 +3,8 @@ import { UserContext } from "../App";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 function Create() {
-    const [loggedIn, setLoggedin] = useContext(UserContext)
+    const [loggedIn] = useContext(UserContext)
+    const [token] = useContext(UserContext)
     const navigate = useNavigate();
     useEffect(() => {
         if (!loggedIn){
