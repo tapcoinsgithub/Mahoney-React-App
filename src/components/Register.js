@@ -69,7 +69,14 @@ const Register = () => {
                 }
             );
             console.log(response.data);
-            setSuccess(true)
+            if (response.data.result == "Success"){
+                console.log("RESULT IS TRUE")
+                setSuccess(true)
+            }
+            else{
+                console.log("RESULT IS FALSE")
+            }
+            
         }
         catch(error) {
             if (!error?.response){
@@ -82,10 +89,10 @@ const Register = () => {
         }
     }
     return (
-        <section>
+        <section className="registrationContainer">
             <p ref={errRef} className={errorMessage ? "errmsg" : "offscreen"} aria-live="assertive">{errorMessage}</p>
             <h1>Register</h1>
-            <form className="loginForm" onSubmit={handleRegister}>
+            <form className="registrationForm" onSubmit={handleRegister}>
                 <label htmlFor="username">
                     Username:
                     <span className={validUserName ? "valid" : "hide"}>
@@ -166,6 +173,7 @@ const Register = () => {
                 </p>
                 <button type="submit" disabled={!validUserName || !validPassword || !validConfirmPassword ? true : false}>Register</button>
             </form>
+            <p className={success ? "success" : "offscreen"} > Successfully Registered User!</p>
         </section>
     )
 }

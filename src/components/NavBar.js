@@ -40,7 +40,7 @@ function NavBar() {
     }
   return (
     <nav className="nav">
-      <a href="/" className="site-title">Site Name</a>
+      <a href="/home" className="site-title">Site Name</a>
       <ul>
         <li><Link to="/home">Home</Link></li>
         <li><Link to="/create">Create</Link></li>

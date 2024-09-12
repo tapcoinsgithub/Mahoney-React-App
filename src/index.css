@@ -14,13 +14,57 @@ code {
 
 .container {
   padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.logRegContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 460px;
+  width: 700px;
+  border: 1px solid black;
+  margin-top: 6rem;
+}
+
+.loginContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  /* background-color: green; */
+  width: 300px;
+  height: 400px;
+  border-right: 0.5px solid gray;
 }
 
 .loginForm{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  /* background-color: blue; */
+  height: 200px;
+}
+
+.registrationContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  /* background-color: orange; */
+  width: 300px;
+  height: 400px;
+}
+
+.registrationForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: pink; */
+  height: 200px;
 }
 
 .nav{
@@ -92,4 +136,8 @@ code {
 .offscreen{
   position: fixed;
   left: 2000px;
+}
+
+.success {
+  color: green;
 }

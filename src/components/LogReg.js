@@ -13,7 +13,7 @@ function LogReg() {
     }
 }, []);
   return (
-    <div>
+    <div className='logRegContainer'>
       <Login />
       <Register />
     </div>

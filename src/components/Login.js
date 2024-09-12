@@ -30,12 +30,12 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         if (username.length < 0){
-            setErrorMessage("Invalid Username.");
+            setErrorMessage("Invalid Username length.");
             setHasError(true);
             return;
         }
         if (password.length < 8 || password.length > 24){
-            setErrorMessage("Invalid Password.");
+            setErrorMessage("Invalid Password Length.");
             setHasError(true);
             return;
         }
@@ -60,21 +60,25 @@ const Login = () => {
             }
             else{
                 console.log("FAILED")
+                setHasError(true)
+                setErrorMessage("Invalid credentials.")
             }
         }
         catch(error) {
             if (!error?.response){
+                setHasError(true)
                 setErrorMessage("No Server Response.")
             }
             else{
-                setErrorMessage("Registration Failed")
+                setHasError(true)
+                setErrorMessage("Login Failed")
             }
             console.log(error);
             errRef.current.focus()
         }
     }
     return (
-        <section>
+        <section className="loginContainer">
             <p ref={errRef} className={hasError ? "errmsg" : "offscreen"} aria-live="assertive">{errorMessage}</p>
             <h1>Login</h1>
             <form className="loginForm" onSubmit={handleLogin}>
