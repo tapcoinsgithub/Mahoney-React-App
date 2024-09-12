@@ -6,11 +6,34 @@ import { UserContext } from "../App";
 function NavBar() {
     const [loggedIn, setLoggedin] = useContext(UserContext)
     const navigate = useNavigate();
+    const LOGOUT_URL = '/logout'
 
-    const logout = () => {
-        console.log("PRESSING LOGOUT")
-        setLoggedin(false);
-        navigate("/logReg")
+    const logout = async (e) => {
+      e.preventDefault();
+      // try{
+      //     const response = await axios.post(LOGOUT_URL, 
+      //         JSON.stringify({ username, password}),
+      //         {
+      //             headers: {
+      //                 'Content-Type': 'application/json',
+      //                 'Access-Control-Allow-Credentials': "true"
+      //             },
+      //             origin: "http://127.0.0.1:8081/login",
+      //             withCredentials: true
+      //         }
+      //     );
+      // }
+      // catch(error) {
+      //     if (!error?.response){
+      //         setErrorMessage("No Server Response.")
+      //     }
+      //     else{
+      //         setErrorMessage("Logout Failed")
+      //     }
+      //     console.log(error);
+      // }
+      setLoggedin(false);
+      navigate("/logReg")
     }
   return (
     <nav className="nav">
